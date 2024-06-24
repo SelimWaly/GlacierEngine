@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\engine\base\CharSet.cpp" />
+    <ClCompile Include="..\..\engine\base\error.cpp" />
+    <ClCompile Include="..\..\engine\base\FilePath.cpp" />
+    <ClCompile Include="..\..\engine\base\KFile.cpp" />
+    <ClCompile Include="..\..\engine\base\KGlobalFunction.cpp" />
+    <ClCompile Include="..\..\engine\base\KNFile.cpp" />
+    <ClCompile Include="..\..\engine\base\KProfile.cpp" />
+    <ClCompile Include="..\..\engine\core\AnimationThread.cpp" />
+    <ClCompile Include="..\..\engine\core\DataSync.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\K9PatchImageDrawable.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\KAreaBlurDrawable.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\KBitmapTextDrawable.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\KColorDrawable.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\KColorTextDrawable.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\KDrawable.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\KImageDrawable.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\KPathEffectDrawable.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\KShapeDrawable.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\KSvgAnalyzing.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\KTextDrawable.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\KTextMultiLineDrawable.cpp" />
+    <ClCompile Include="..\..\engine\core\drawable\KWaveEffectDrawable.cpp" />
+    <ClCompile Include="..\..\engine\core\Easing.cpp" />
+    <ClCompile Include="..\..\engine\core\KConfigManager.cpp" />
+    <ClCompile Include="..\..\engine\core\KEasingCurve.cpp" />
+    <ClCompile Include="..\..\engine\core\KFontManager.cpp" />
+    <ClCompile Include="..\..\engine\core\KGalleryView.cpp" />
+    <ClCompile Include="..\..\engine\core\KGestureDetector.cpp" />
+    <ClCompile Include="..\..\engine\core\KLog.cpp" />
+    <ClCompile Include="..\..\engine\core\KMessage.cpp" />
+    <ClCompile Include="..\..\engine\core\KScreen.cpp" />
+    <ClCompile Include="..\..\engine\core\KStringManager.cpp" />
+    <ClCompile Include="..\..\engine\core\KSurfaceManager.cpp" />
+    <ClCompile Include="..\..\engine\core\KTimer.cpp" />
+    <ClCompile Include="..\..\engine\core\mainforwindows.cpp" />
+    <ClCompile Include="..\..\engine\core\message.cpp" />
+    <ClCompile Include="..\..\engine\core\messageforwindows.cpp" />
+    <ClCompile Include="..\..\engine\core\GLACIERAnimation.cpp" />
+    <ClCompile Include="..\..\engine\core\GLACIERInstance.cpp" />
+    <ClCompile Include="..\..\engine\core\utility.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KButtonView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KCheckboxView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KEditView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KListView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KMenuView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KMoveableView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KProcessView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KSlideView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KStaticTextView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KSwitchButtonView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KTextView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KTipView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KView.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KViewGroup.cpp" />
+    <ClCompile Include="..\..\engine\core\views\KWaveEffectView.cpp" />
+    <ClCompile Include="..\..\engine\graphic\src\glenv.cpp" />
+    <ClCompile Include="..\..\engine\graphic\src\REEffectHelper.cpp" />
+    <ClCompile Include="..\..\engine\graphic\src\RERect.cpp" />
+    <ClCompile Include="..\..\engine\graphic\src\RESurface.cpp" />
+    <ClCompile Include="..\..\engine\graphic\src\RESurfaceFactory.cpp" />
+    <ClCompile Include="..\..\engine\graphic\src\REWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\engine\include\base\CharSet.h" />
+    <ClInclude Include="..\..\engine\include\base\FilePath.h" />
+    <ClInclude Include="..\..\engine\include\base\KFile.h" />
+    <ClInclude Include="..\..\engine\include\base\KGlobalFunction.h" />
+    <ClInclude Include="..\..\engine\include\base\KNFile.h" />
+    <ClInclude Include="..\..\engine\include\base\KObject.h" />
+    <ClInclude Include="..\..\engine\include\base\KProfile.h" />
+    <ClInclude Include="..\..\engine\include\graphic\DrawLooper.h" />
+    <ClInclude Include="..\..\engine\include\graphic\glenv.h" />
+    <ClInclude Include="..\..\engine\include\graphic\ImageCoder.h" />
+    <ClInclude Include="..\..\engine\include\graphic\MaskFilter.h" />
+    <ClInclude Include="..\..\engine\include\graphic\PathEffect.h" />
+    <ClInclude Include="..\..\engine\include\graphic\Rasterizer.h" />
+    <ClInclude Include="..\..\engine\include\graphic\REBitmap.h" />
+    <ClInclude Include="..\..\engine\include\graphic\RECanvas.h" />
+    <ClInclude Include="..\..\engine\include\graphic\REColor.h" />
+    <ClInclude Include="..\..\engine\include\graphic\REEffectHelper.h" />
+    <ClInclude Include="..\..\engine\include\graphic\REMatrix.h" />
+    <ClInclude Include="..\..\engine\include\graphic\renderingengine.h" />
+    <ClInclude Include="..\..\engine\include\graphic\REPaint.h" />
+    <ClInclude Include="..\..\engine\include\graphic\REPath.h" />
+    <ClInclude Include="..\..\engine\include\graphic\REPoint.h" />
+    <ClInclude Include="..\..\engine\include\graphic\RERect.h" />
+    <ClInclude Include="..\..\engine\include\graphic\RERegion.h" />
+    <ClInclude Include="..\..\engine\include\graphic\REScalar.h" />
+    <ClInclude Include="..\..\engine\include\graphic\RETypeface.h" />
+    <ClInclude Include="..\..\engine\include\graphic\REWindow.h" />
+    <ClInclude Include="..\..\engine\include\graphic\Shader.h" />
+    <ClInclude Include="..\..\engine\include\graphic\SkiaRESurface.h" />
+    <ClInclude Include="..\..\engine\include\graphic\Xfermode.h" />
+    <ClInclude Include="..\..\engine\include\KLog.h" />
+    <ClInclude Include="..\..\engine\include\NE_configure.h" />
+    <ClInclude Include="..\..\engine\include\NE_debug.h" />
+    <ClInclude Include="..\..\engine\include\NE_error.h" />
+    <ClInclude Include="..\..\engine\include\NE_macro.h" />
+    <ClInclude Include="..\..\engine\include\NE_pubhead.h" />
+    <ClInclude Include="..\..\engine\include\NE_type.h" />
+    <ClInclude Include="..\..\engine\include\engine\AnimationThread.h" />
+    <ClInclude Include="..\..\engine\include\engine\DataSync.h" />
+    <ClInclude Include="..\..\engine\include\engine\K9PatchImageDrawable.h" />
+    <ClInclude Include="..\..\engine\include\engine\KAreaBlurDrawable.h" />
+    <ClInclude Include="..\..\engine\include\engine\KBitmapTextDrawable.h" />
+    <ClInclude Include="..\..\engine\include\engine\KButtonView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KCheckboxView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KColorDrawable.h" />
+    <ClInclude Include="..\..\engine\include\engine\KColorTextDrawable.h" />
+    <ClInclude Include="..\..\engine\include\engine\KConfigManager.h" />
+    <ClInclude Include="..\..\engine\include\engine\KDrawable.h" />
+    <ClInclude Include="..\..\engine\include\engine\KEasingCurve.h" />
+    <ClInclude Include="..\..\engine\include\engine\KEditView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KFontManager.h" />
+    <ClInclude Include="..\..\engine\include\engine\KGalleryView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KGestureDetector.h" />
+    <ClInclude Include="..\..\engine\include\engine\KImageDrawable.h" />
+    <ClInclude Include="..\..\engine\include\engine\KListView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KMenuView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KMessage.h" />
+    <ClInclude Include="..\..\engine\include\engine\KMoveableView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KPathEffectDrawable.h" />
+    <ClInclude Include="..\..\engine\include\engine\KProcessView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KScreen.h" />
+    <ClInclude Include="..\..\engine\include\engine\KShapeDrawable.h" />
+    <ClInclude Include="..\..\engine\include\engine\KSlideView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KStaticTextView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KStringManager.h" />
+    <ClInclude Include="..\..\engine\include\engine\KSurfaceManager.h" />
+    <ClInclude Include="..\..\engine\include\engine\KSvgAnalyzing.h" />
+    <ClInclude Include="..\..\engine\include\engine\KSwitchButtonView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KTextDrawable.h" />
+    <ClInclude Include="..\..\engine\include\engine\KTextMultiLineDrawable.h" />
+    <ClInclude Include="..\..\engine\include\engine\KTextView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KTimer.h" />
+    <ClInclude Include="..\..\engine\include\engine\KTipView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KView.h" />
+    <ClInclude Include="..\..\engine\include\engine\KViewGroup.h" />
+    <ClInclude Include="..\..\engine\include\engine\KWaveEffectDrawable.h" />
+    <ClInclude Include="..\..\engine\include\engine\KWaveEffectView.h" />
+    <ClInclude Include="..\..\engine\include\engine\mainforwindows.h" />
+    <ClInclude Include="..\..\engine\include\engine\message.h" />
+    <ClInclude Include="..\..\engine\include\engine\GLACIERAnimation.h" />
+    <ClInclude Include="..\..\engine\include\engine\sigslot.h" />
+    <ClInclude Include="..\..\engine\include\engine\utility.h" />
+    <ClInclude Include="..\..\engine\include\Platform.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{87C5B29F-DDDD-42B8-BA41-C625EF7EB382}</ProjectGuid>
+    <RootNamespace>glacierengine</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="engine.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="engine.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\static_lib\</OutDir>
+    <IntDir>$(SolutionDir)..\..\VSTempDir\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_D</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\static_lib\</OutDir>
+    <IntDir>$(SolutionDir)..\..\VSTempDir\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName>glacierengine</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4251</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
