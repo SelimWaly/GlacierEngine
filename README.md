@@ -3,7 +3,6 @@
 </p>
 
 
----
 
 <h1 align="center">Glacier Engine</h1>
 
