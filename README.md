@@ -16,7 +16,7 @@ Glacier is a graphical interface engine for creating animations and interfaces i
 
 ## Setup
 
-This is a simple C++ project requires forceful injection with no official setup.
+**To utilize this cross-platform library, use a G++ compiler of your choice to compile the code.**
 
 
 ## License
