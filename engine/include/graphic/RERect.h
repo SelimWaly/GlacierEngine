@@ -22,8 +22,8 @@ namespace RERectHelper
 	bool CheckAndJoinIntersetRect( LSTRECT& lsRects );
 	void Merge( LSTRECT& lsRects );
 
-	// RERect用于屏幕显示, 因此正常情况下, top <bottom
-	// 假如用于地图数据范围, 并需要调用RERect的算法, 则需要先上下颠倒
+	// RERect, , top <bottom
+	// , RERect, 
 	inline void InvertRect(REIRect& rct) {std::swap(rct.fTop, rct.fBottom);}
 	inline void InvertRect(RERect& rct) {std::swap(rct.fTop, rct.fBottom);}
 }

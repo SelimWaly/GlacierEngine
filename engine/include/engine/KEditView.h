@@ -16,9 +16,9 @@ public:
 		m_Length = 0;
 		m_TextAtom = _T("");
 	}
-	kn_string m_TextAtom;  //单个字符
-	int m_Length;   // 字符的像素宽
-	int m_Type;		// 字符的类型
+	kn_string m_TextAtom;  //
+	int m_Length;   // 
+	int m_Type;		// 
 };
 
 
@@ -38,10 +38,10 @@ public:
 	virtual void UpdateTextDrawable();
 	void ShowCross(bool bshow);
 	virtual void SetCrossIndex(int index);
-	/// @brief 获取游标位置值 add by junz at 2014-12-27
+	/// @brief  add by junz at 2014-12-27
 	kn_int GetCrossIndex();
 	void SetAllSelect(bool bSel);
-	/// @brief 获取当前是否全选 add by junz at 2014-12-27
+	/// @brief  add by junz at 2014-12-27
 	kn_bool GetAllSelect();
 
 	int GetLinecount();
@@ -63,7 +63,7 @@ public:
 	void Paste();
 	void Cut();
 
-	// 是否显示输入法keyboard,  实现放在 messageforwindows.cpp or messageforlinux.cpp 
+	// keyboard,   messageforwindows.cpp or messageforlinux.cpp 
 	void showIME(kn_bool b);
 	void setReadonly(bool bReadOnly){m_bReadOnly = bReadOnly;};
 	bool getReadonly(){return m_bReadOnly;};
@@ -76,7 +76,7 @@ public:
 	void setCrossOff(kn_int i);
 	void setRowInterval(int v);
 	void setFocusDrawable( KDrawable_PTR p );
-    // 设置可输入文字的最大长度 add by weix 
+    //  add by weix 
     void setInputMaxLength(kn_int max_length);
 
 	sigslot::signal0<> m_sign_end_input;
@@ -85,14 +85,14 @@ protected:
 	KDrawable_PTR m_Cross_drawable;
 	KDrawable_PTR m_AllSelect_drawable;
 
-	bool m_bReadOnly;  //只读标示
+	bool m_bReadOnly;  //
 
-	std::vector<EditWordAtom> m_Text;   //字符串
-	int m_Index;  // 游标的位置
+	std::vector<EditWordAtom> m_Text;   //
+	int m_Index;  // 
 
 	bool m_bAllSelect;
 
-	int m_bk_border_w, m_bk_border_h;  // 边缘预留的宽度,
+	int m_bk_border_w, m_bk_border_h;  // ,
 
 	bool m_bFocus;
 
@@ -102,11 +102,11 @@ protected:
 
 	int m_i_cross_offset;
 	KDrawable_PTR m_focus_drawable;
-    // 可输入最大字数  add by weix
+    //   add by weix
     kn_int m_input_max_length;
-    // 是否为backspace操作 add by weix at 2015-12-01
+    // backspace add by weix at 2015-12-01
     kn_bool m_b_is_backspace_oper; 
-    // backspace操作删除的文字长度 add by weix at 2015-12-01
+    // backspace add by weix at 2015-12-01
     kn_int  m_backspace_char_length;
 
 };

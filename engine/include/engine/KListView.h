@@ -11,11 +11,11 @@
 #include "boost/thread/recursive_mutex.hpp"
 #include "KShapeDrawable.h"
 
-// 记录鼠标轨迹
+// 
 struct TrackPoint
 {
-	kn_int y;	//	Y坐标
-	kn_dword ticks;	// 时刻
+	kn_int y;	//	Y
+	kn_dword ticks;	// 
 
 	TrackPoint(int);
 	TrackPoint();
@@ -29,42 +29,42 @@ public:
 	enum
 	{
 		LS_NORMAL,
-		LS_SCROLLING,	// 滑动中
-		LS_ITEMCLICK 	// 点击item项
+		LS_SCROLLING,	// 
+		LS_ITEMCLICK 	// item
 
 	};
 
 	KListView() ;
 	virtual ~KListView();
 	virtual void shared_ptr_inited();
-	// 添加自定义的View
+	// View
 	void UI_addItemView(KView_PTR pItemView);
 
-	// 删掉所有Item
+	// Item
 	void UI_clearAllItems();
 
-	// 获取ItemView
+	// ItemView
 	KView_PTR getItemView(kn_int index);
 
  
-	// 获取列表总数
+	// 
 	kn_int getItemCount();
 
 	//void setViewport(RERect rect);
 
-	// 使位置移动落在可视范围
+	// 
 	int adjustInViewport(int iPosY);
 
 	void bindData(vector<kn_string>& vData);
 
-	// 带动画的滑动位移
+	// 
 	void scrollByOffsetAnimation(int y);
 
-	// 滑动位移
+	// 
 	void scrollByOffset(int y);
 	void scrollByPos(int y);
 
-	// 根据ItemGroup的位置，计算滚动条的位置
+	// ItemGroup
 	kn_int calcScrollerPos(int iItemsTop);
 
 	void  onKeydown(KMessageKey* pMsg);
@@ -76,23 +76,23 @@ public:
 
 	virtual kn_bool Create(kn_int iX, kn_int iY, kn_int iWidth, kn_int iHeight);
 
-	// 是否显示FastScroll 
+	// FastScroll 
 	void showFastScroller(kn_bool bShow);
 
-	// 设置分隔符
+	// 
 	void setDivider(KDrawable_PTR pDrawable);
 	 
 
-	// 设置滚动条
+	// 
 	void setScroller();
 
-	// 动画是否正在运行.此时不建议更新listview
+	// .listview
 	kn_bool isAnimationRunning();
 
-	// 设置 滚动条移动到底部
+	//  
 	void UI_SetToBottom();
 
-	// 是否可以拖动
+	// 
 	void enableDrag(kn_bool b);
 	 
 protected:
@@ -104,7 +104,7 @@ protected:
 	void dragLastPhyHandler();
 
 
-	// 设置快速滚动条
+	// 
 	void setFastScroller();
 
 	void  onFastScrollerDown(kn_int x, kn_int y, KMessageMouse* pMsg);
@@ -115,11 +115,11 @@ protected:
 
 	void updateFastScrollerPos(kn_float y);
 
-	// 判断滑动状态 ， 滑动/ 点击item项
+	//   / item
 	kn_int judgeScrollState();
 
 
-	// 恢复item group 的初始设置
+	// item group 
 	void resetItemGroup();
 
 protected:
@@ -129,49 +129,49 @@ protected:
 
 	CAnimationThread m_ani_thread;
 
-	// 上次按下的坐标
+	// 
 	REPoint m_last_press_point;
 	REPoint m_first_press_point;
 
-	// 按下时listview的top
+	// listviewtop
 	kn_int m_i_press_top; 
 
-	// listview可以看到的范围, 相对于上级的坐标,同m_rect的坐标
+	// listview, ,m_rect
 	RERect m_rect_viewport;
 
-	// 操作的坐标点, 只记录Y轴
+	// , Y
 	vector<TrackPoint> m_vec_touchpoints;
 
-	// 滚动条，仅在滑动时显示
+	// 
 	KView_PTR m_p_scroller;
 
-	// 滚动条 drawable
+	//  drawable
 	KShapeDrawable_PTR m_drawable_slider;
 
-	// 快速滚动条
+	// 
 	KMoveableView_PTR m_p_fast_scroller;
 
 	kn_bool m_b_show_scroller;
 
-	// 列表项的集合,可以超出listview的范围
+	// ,listview
 	KViewGroup_PTR m_p_item_groupview;
 
-	// 滑动状态， 区分 listview 滑动/ Item点击  
+	//   listview / Item  
 	kn_int m_i_scroll_state; 
 
-	// 分隔符
+	// 
 	KDrawable_PTR m_drawable_divider;
 
-	// 分隔符的高
+	// 
 	kn_int m_i_divider_height;
 
-	// item的高
+	// item
 	kn_int m_i_item_height;
 
-	// 项的总数
+	// 
 	kn_int m_i_item_count;
 
-	// 是否可拖动
+	// 
 	kn_bool m_b_enable_drag;
 
  

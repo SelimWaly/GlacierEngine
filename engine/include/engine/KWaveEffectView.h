@@ -17,10 +17,10 @@ public:
 	KWaveEffectView();
 	virtual ~KWaveEffectView();
 
-	virtual void init( kn_string file); //传入的是tip针对的view的范围，screen全局坐标
+	virtual void init( kn_string file); //tipviewscreen
 	virtual void init( IRESurface* pSurface, kn_bool b_out = FALSE); 
 
-	//speed 播放速度，40始终，越大越快
+	//speed 40
 	void play(int speed = 40);
 	void stop();
 	////
@@ -33,7 +33,7 @@ protected:
 	int	m_i_frame;
 	int m_speed;
 };
-//使用智能指针管理
+//
 typedef boost::shared_ptr<KWaveEffectView> KWaveEffectView_PTR;
 
 #endif

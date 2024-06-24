@@ -25,31 +25,31 @@ public:
 	void setAlignType(int type){m_aligntype = type;};
 	int getAlignType(){return m_aligntype;};
 
-	//根据文字尺寸自动增加换行 简单处理
+	// 
 	void autoMLine();
 
-	//取得换行排版后的宽度和高度
+	//
 //	void getTextWH(int &w, int& h);
 
-	//取得文字行数
+	//
 	int getLine();
 	int getMaxWidth();
 	void setRowInterval(int);
 	void setMaxLine(int);
-	bool isOverroad(); //是否超出了最大行
+	bool isOverroad(); //
 protected:
-	//用户绘制的string，避免每次绘制都转换
+	//string
     boost::shared_mutex    m_draw_string_mutex;
 	std::vector<kn_string> m_v_draw_string;
 	int m_aligntype;
 
-	//行间距，字体高度额外的间距
+	//
 	int m_txt_row_interval;
-	//文本行数
+	//
 	//int m_txt_line;
 	int m_multi_line_w;
 	int m_max_line;
-	kn_bool m_b_overroad;	//是否超出了最大行
+	kn_bool m_b_overroad;	//
 };
 
 typedef boost::shared_ptr<KTextMultiLineDrawable> KTextMultiLineDrawable_PTR;

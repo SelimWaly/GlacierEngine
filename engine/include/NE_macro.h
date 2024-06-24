@@ -6,15 +6,13 @@
 #ifndef _NE_MACRO_H_
 #define _NE_MACRO_H_
 
-#define KNAPI               // API调用协议
+#define KNAPI
 
-#define IN      // 输入参数
-#define OUT     // 输出参数
-#define INOUT   // 输入、输出参数
+#define IN
+#define OUT
+#define INOUT
 
-// 安全删除一个需调用delete释放的对象
 #define SAFE_DELETE(pObject) if(pObject) {delete (pObject); (pObject) = NULL;}
-// 安全删除一组需调用delete[]释放的对象
 #define SAFE_DELETE_GROUP(pObject) if(pObject) {delete[] (pObject); (pObject) = NULL;}
 
 #ifndef PI

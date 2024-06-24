@@ -12,13 +12,13 @@ class API CGLEvn
 public:
 	CGLEvn();
 	~CGLEvn();
-	//释放
+	//
 	void glenvRelease();
-	//初始化环境
+	//
 	bool glenvInit(HDC hdc, int x,  int y,  int t, int b, bool b_mem = FALSE);
-	//设为当前环境
+	//
 	bool glenvActive();
-	//上屏
+	//
 	void SwapBuffers();
 
 	HGLRC m_hrc;

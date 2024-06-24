@@ -1541,7 +1541,7 @@ namespace sigslot {
 
 	private:
 		dest_type* m_pobject;
-		boost::weak_ptr<KView> m_weak_p; //zhic 断掉信号和槽的双向联系 使用智能指针虚指针机制保护
+		boost::weak_ptr<KView> m_weak_p; //zhic  
 		void (dest_type::* m_pmemfun)();
 	};
 
@@ -1591,7 +1591,7 @@ namespace sigslot {
 
 	private:
 		dest_type* m_pobject;
-		boost::weak_ptr<KView> m_weak_p; //zhic 断掉信号和槽的双向联系 使用智能指针虚指针机制保护
+		boost::weak_ptr<KView> m_weak_p; //zhic  
 		void (dest_type::* m_pmemfun)(arg1_type);
 	};
 
@@ -1642,7 +1642,7 @@ namespace sigslot {
 
 	private:
 		dest_type* m_pobject;
-		boost::weak_ptr<KView> m_weak_p; //zhic 断掉信号和槽的双向联系 使用智能指针虚指针机制保护
+		boost::weak_ptr<KView> m_weak_p; //zhic  
 		void (dest_type::* m_pmemfun)(arg1_type, arg2_type);
 	};
 

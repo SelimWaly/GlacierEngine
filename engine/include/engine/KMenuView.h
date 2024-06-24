@@ -24,19 +24,19 @@ public:
 	sigslot::signal1<int> m_sign_menu_click;
 	void  setBKDrawable( KDrawable_PTR p );
 protected:
-	//触发menu的view
+	//menuview
 	KView_PTR	m_active_view;
 	KDrawable_PTR	m_bk_drawable;
 
-	//自动隐藏，只要菜单收到点击消息就隐藏
+	//
 	kn_bool m_b_auto_hide;
 
 };
-//Menu 类使用智能指针管理
+//Menu 
 typedef boost::shared_ptr<KMenuBase> KMenuBase_PTR;
 
 
-//标准菜单
+//
 class API KMenuList : public KMenuBase
 {
 public:

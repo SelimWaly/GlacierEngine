@@ -7,7 +7,7 @@
 
 #include "NE_pubhead.h"
 
-//	字符集
+//	
 enum CHARSETt
 {
 	CHARSET_GBK = 936,
@@ -21,10 +21,10 @@ int ConvertUnicode2GBK(IN const wchar_t* wszUnicode, IN size_t iUNLen, OUT char*
 int ConvertGBK2Unicode(IN const char* szGBK, IN size_t iGBLen, OUT wchar_t* wszUnicode);
 
 // #ifdef QT_WINDOWS_LIB
-//	SJIS -> utf8 ,返回转换的字符个数
+//	SJIS -> utf8 ,
 int ConvertSJIS2Utf8(IN const char* pszSjis, IN int iSjisSize, OUT const char* pszUtf8);
 
-//	GBK -> utf8 ,返回转换的字符个数
+//	GBK -> utf8 ,
 int ConvertGBK2Utf8(IN const char* pszGBK, IN int iGBKSize, OUT const char* pszUtf8);
 // #endif
 void ConvertCreateChar (IN const char* szIn, OUT char* szOut);
@@ -70,7 +70,7 @@ int KNWideCharToMultiByte(
 size_t kn_wcstombs(char * dst, const wchar_t * src, size_t len);
 size_t kn_mbstowcs(wchar_t * dst, const char * src, size_t len);
 
-//	android没有实现wcstombs
+//	androidwcstombs
 #if defined(ANDROID_NDK)
 
 

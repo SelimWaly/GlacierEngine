@@ -19,7 +19,7 @@
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include "CharSet.h"
 
-//以下错误类型定义与WINERROR.H一致，为保证跨平台移植至此
+//WINERROR.H
 #ifndef _WINERROR_
 #define NO_ERROR                         0L      // dderror
 #define ERROR_FILE_NOT_FOUND             2L   
@@ -43,82 +43,82 @@ typedef char kn_char;
 typedef std::basic_string <kn_char> kn_string;
 
 #ifdef WIN32
- #undef MultiByteToWideChar   //为了能调用系统的MultiByteToWideChar函数
- #undef WideCharToMultiByte   //为了能调用系统的MultiByteToWideChar函数
+ #undef MultiByteToWideChar   //MultiByteToWideChar
+ #undef WideCharToMultiByte   //MultiByteToWideChar
 #endif // WIN32
 
 wstring UTF8ToUnicode( const string& str );
 
 string UnicodeToUTF8( const wstring& str );
 
-//string转换kn_string
+//stringkn_string
 kn_string s2ns( const std::string& ansiStr );
 
-//kn_string转换string
+//kn_stringstring
 string ns2s( const kn_string& str );
 
 std::wstring s2ws( const std::string& ansiStr);
 
-//ptime转换到string 2013-08-07 13:27:18
+//ptimestring 2013-08-07 13:27:18
 string ptime2str(const boost::posix_time::ptime& ptm, bool is_iso_format = false );
 
-//获取ptime中的日期字符串
+//ptime
 string ptime2datestr( boost::posix_time::ptime& ptm );
 
-//获取ptime中的时间字符串
+//ptime
 string ptime2timeStr(const boost::posix_time::ptime& time ) ;
 
 boost::posix_time::ptime timestr2ptime(kn_string& str_time ) ;
 
 bool isTimeValid( kn_string &_time );
 
-//拆分字符串到int类型vector（支持中英文逗号分隔）
+//intvector
 vector <int> splitString2IntVec( const char* lpstr );
 
-//拆分字符串（逗号分隔）
+//
 vector <kn_string> splitString2Vect( const kn_char* lpstr ) ;
 
-//去除字符串中的换行符
+//
 kn_string wipeOutStringLineBreak(const kn_string& str);
 
 kn_string GetAttributeString( TiXmlElement* pElement, const char* name );
 
 kn_string GetXMLNodeValueString(TiXmlElement* pElement);
-//从xml节点中获取Int类型的值
+//xmlInt
 int GetAttributeInt( TiXmlElement* pElement, const char* name ) ;
 
-//从xml节点中获取到的String中分解出int类型的Vector
+//xmlStringintVector
 std::vector<int> GetAttribute2IntVector( TiXmlElement* pElement, const char* name );
 
 string IntVector2str( const vector <int>& vec );  
 
-//设置xmstring类型属性值，本方法中会自动从unicode转换为utf-8
+//xmstringunicodeutf-8
 void SetAttributeStr( TiXmlElement* pElement, const char* name, const kn_string & value );
 
 void SetAttributeStr( TiXmlElement* pElement, const char* name, const char* value );
-//获得xml节点的值
+//xml
 kn_string getXmlElementValue( TiXmlElement* p_element );
 
-//获得当前节点的子节点中的文本
+//
 kn_string getChildNodeText(TiXmlElement* p_parent_elem , const char* elem_name);
 
-//获得xml节点中的整数值
+//xml
 int getXmlNodeValue(TiXmlElement* p_element );
 
-//获得当前节点的子节点中的整数值
+//
 int getChildNodeValue(TiXmlElement* p_parent_elem , const char* elem_name );
 
-//Excel中日期和时间转换为ptime，excel日期从1900 年 1 月 1 日起。
+//Excelptimeexcel1900  1  1 
 boost::posix_time::ptime excelTime2ptime(int i_date,double d_time);
 
-//创建新的XML NODE,并返回添加后的NODE对象的指针
+//XML NODE,NODE
 TiXmlElement* add_node(TiXmlElement* parent, const char* node_name,  const char* value);
 
 TiXmlElement* add_node(TiXmlElement* parent, const char* node_name, const kn_string & value);
-//获得当前节点的文本
+//
 kn_string GetTextString( TiXmlElement* pElement );
 // TEMPLATE STRUCT less_nprjobject
-// 各种类型对象通用的比较函数
+// 
 template<class _Ty>
 struct less_nprjobject
     : public binary_function<_Ty, _Ty, bool>

@@ -18,12 +18,12 @@ public:
 
 	virtual void onClick(kn_int x, kn_int y, KMessageMouse* pMsg);
 
-	// 设置资源: 选中图标 、未选中图标、文字
+	// :  
 	void setResourse(const kn_string& strClickResPath, const kn_string& strUnclickResPath, const kn_string& strMessage);
 	void setResourse(IRESurface* , IRESurface* , const kn_string& strMessage);
 	//void setResourseDrawable( KDrawable_PTR daChecked,  KDrawable_PTR daUnchecked, KDrawable_PTR daMessage);
 	void setResourseDrawable( KDrawable_PTR daChecked,  KDrawable_PTR daUnchecked, const kn_string& strMessage);//huw
-	// 选中状态改变,参数为改变后的状态
+	// ,
 	sigslot::signal1<kn_bool> m_sign_state_changed;
 
 	void SetCenter();
@@ -69,7 +69,7 @@ public:
 	KRadioboxView_PTR GetSelectedView ();
 
 
-	// 选中项改变，参数为改变后的状态
+	// 
 	sigslot::signal1<kn_int> m_sign_index_changed;
 	sigslot::signal1<KRadioboxView_PTR> m_sign_selectedview_changed;
 

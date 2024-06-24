@@ -22,10 +22,10 @@ public:
 
 	sigslot::signal0<> m_sign_view_move;
 protected:
-	kn_bool m_b_x; // x方向能否移动
-	kn_bool m_b_y; // x方向能否移动
+	kn_bool m_b_x; // x
+	kn_bool m_b_y; // x
 
-	RERect  m_move_area; //可移动的范围，左上角坐标相对父view的坐标范围
+	RERect  m_move_area; //view
 	REPoint  m_down_pos;
 	
 };
@@ -34,7 +34,7 @@ typedef boost::shared_ptr<KMoveableView> KMoveableView_PTR;
 class API KMoveBackView : public KMoveableView
 {
 protected:
-	//返回位置，这是相对于父坐标的
+	//
 	REPoint m_stack_point;
 	CAnimationThread m_mov_ani_thread;
 public:

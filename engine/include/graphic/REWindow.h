@@ -7,7 +7,7 @@
 #include <vector>
 
 //#define USE_DDRAW
-// 显示刷新范围边线
+// 
 void ShowRefreshingBound(kn_bool bShow);
 
 #ifdef WIN32
@@ -16,10 +16,10 @@ class API REWinDeviceSurface: public RESurface
 public:
 	REWinDeviceSurface(HDC,kn_int width, kn_int height, REBitmap::Config colorFormat);
 
-	// 析构函数
+	// 
 	virtual ~REWinDeviceSurface() ;
 
-	// 绘制上屏
+	// 
 	virtual void Flip(LSTRECT &lst_rect);
 
 protected:
@@ -34,10 +34,10 @@ class API RELayerWinDeviceSurface: public REWinDeviceSurface
 public:
 	RELayerWinDeviceSurface(HWND, HDC,kn_int width, kn_int height);
 
-	// 析构函数
+	// 
 	virtual ~RELayerWinDeviceSurface() ;
 
-	// 绘制上屏
+	// 
 	virtual void Flip(LSTRECT &lst_rect);
 
 protected:
@@ -53,10 +53,10 @@ class API REDDrawSurface: public RESurface
 public:
 	REDDrawSurface(HWND,kn_int width, kn_int height, REBitmap::Config colorFormat);
 
-	// 析构函数
+	// 
 	virtual ~REDDrawSurface() ;
 
-	// 绘制上屏
+	// 
 	virtual void Flip(LSTRECT &lst_rect);
 
 private:
@@ -75,10 +75,10 @@ class API REGlSurface: public RESurface
 public:
 	REGlSurface(HDC, kn_int width, kn_int height, REBitmap::Config colorFormat);
 
-	// 析构函数
+	// 
 	virtual ~REGlSurface() ;
 
-	// 绘制上屏
+	// 
 	virtual void Flip(LSTRECT &lst_rect);
 	void setGLEnv(CGLEvn*  gl);
 	virtual void preDraw();
@@ -99,10 +99,10 @@ class API REGLESSurface: public RESurface
 public:
 	REGLESSurface(kn_int width, kn_int height, REBitmap::Config colorFormat);
 
-	// 析构函数
+	// 
 	virtual ~REGLESSurface() ;
 
-	// 绘制上屏
+	// 
 	virtual void Flip(LSTRECT &lst_rect);
 	void setGLESEnv(KGlesEnv* gles);
 	virtual void preDraw();
@@ -146,10 +146,10 @@ class API RESkiaGLSurface: public RESurface
 public:
 	RESkiaGLSurface(HWND wnd, kn_int width, kn_int height, REBitmap::Config colorFormat);
 
-	// 析构函数
+	// 
 	virtual ~RESkiaGLSurface() ;  
 
-	// 绘制上屏
+	// 
 	virtual void Flip(LSTRECT &lst_rect);
 	virtual kn_bool Initialize(kn_dword width, kn_dword height, REBitmap::Config colorFormat);
 	virtual void preDraw();
@@ -174,10 +174,10 @@ class API REGLLayerWinDeviceSurface: public REGlSurface
 public:
 	REGLLayerWinDeviceSurface(HWND, HDC,kn_int width, kn_int height);
 
-	// 析构函数
+	// 
 	virtual ~REGLLayerWinDeviceSurface() ;
 
-	// 绘制上屏
+	// 
 	virtual void Flip(LSTRECT &lst_rect);
 
 	HDC getMemDC();
@@ -200,10 +200,10 @@ class API REAndroidSurface: public RESurface
 public:
 	REAndroidSurface(char* buff, kn_int width, kn_int height, REBitmap::Config colorFormat);
 
-	// 析构函数
+	// 
 	virtual ~REAndroidSurface() ;
 
-	// 绘制上屏
+	// 
 	virtual void Flip(LSTRECT &lst_rect);
 
 	void SetDstPointer(char* pBuf);
@@ -225,10 +225,10 @@ class API REQtSoftSurface: public RESurface
 public:
     REQtSoftSurface(void* p, kn_int width, kn_int height, REBitmap::Config colorFormat);
 
-    // 析构函数
+    // 
     virtual ~REQtSoftSurface() ;
 
-    // 绘制上屏
+    // 
     virtual void Flip(LSTRECT &lst_rect);
 
     void SetDstLabel(QLabel* pLabel);
@@ -253,10 +253,10 @@ class API REIOSSurface: public RESurface
 public:
 	REIOSSurface(void*& buff, kn_int width, kn_int height, REBitmap::Config colorFormat);
     
-	// 析构函数
+	// 
 	virtual ~REIOSSurface() ;
     
-	// 绘制上屏
+	// 
 	virtual void Flip(LSTRECT &lst_rect);
     
 	void SetDstPointer(char* pBuf);

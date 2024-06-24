@@ -20,7 +20,7 @@ public:
 private:
 
 	REColor m_color;
-	//颜色填充会忽略当前透明度设置，增加一个alpha变量记录外部alpha
+	//alphaalpha
 	BYTE	m_alpha;
 };
 

@@ -29,7 +29,7 @@ enum PATHTYPE
 	PATH_REL_ARC,			//relative elliptical Arc
 	PATH_CLOSEPATH			//relative closepath
 };
-//图形类别
+//
 enum SHAPETYPE
 {
 	SHAPE_RECT = 0,
@@ -39,7 +39,7 @@ enum SHAPETYPE
 	SHAPE_POLYGON,
 	SHAPE_PATH
 };
-//path段数据结构体
+//path
 struct PathData
 {
 	PATHTYPE pathType;
@@ -49,13 +49,13 @@ struct PathData
 class API KShape : public KObject
 {
 protected:
-	REColor m_fill_clr; //填充颜色
-	float m_fillOpacity; //填充颜色透明度
-	REColor m_stroke_clr;//边框颜色
-	int m_stroke_width;//边框、线的宽度
+	REColor m_fill_clr; //
+	float m_fillOpacity; //
+	REColor m_stroke_clr;//
+	int m_stroke_width;//
 	int m_stroke_miterlimit;
-	float m_strokeOpacity;//边框、线的透明度
-	float m_opacity;//整体透明度
+	float m_strokeOpacity;//
+	float m_opacity;//
 	bool m_bfill;
 	bool m_bstroke;
 	SHAPETYPE m_shapeType;
@@ -96,7 +96,7 @@ public:
 	virtual void Draw(IRESurface* pDstSurface, const REPaint& paint);
 
 };
-//椭圆形
+//
 class API KOvalShape : public KRectShape
 {
 public:
@@ -106,7 +106,7 @@ public:
 	virtual void Draw(IRESurface* pDstSurface, const REPaint& paint);
 };
 
-//扇形
+//
 class API KArcShape : public KRectShape
 {
 protected:
@@ -126,12 +126,12 @@ public:
 
 };
 
-//圆角矩形
+//
 class API KRoundRectShape : public KRectShape
 {
 protected:
-	float m_rx;	// x方向上的圆角半径
-	float m_ry;	//y方向上的圆角半径
+	float m_rx;	// x
+	float m_ry;	//y
 
 public: 
 	KRoundRectShape(){};
@@ -145,13 +145,13 @@ public:
 	void SetRX(float rx);
 	void SetRY(float ry);
 };
-//圆形
+//
 class API KCircleShape : public KShape
 {
 protected:
-	float m_cx;    //圆心x坐标
-	float m_cy;	//圆心y坐标
-	float m_r;	//半径
+	float m_cx;    //x
+	float m_cy;	//y
+	float m_r;	//
 
 
 public: 
@@ -162,7 +162,7 @@ public:
 	void SetCY(float cy);
 	void SetCR(float cr);
 };
-//线
+//
 class API KLineShape : public KShape
 {
 protected:
@@ -177,7 +177,7 @@ public:
 	void SetStartPoint(REPoint p1);
 	void SetEndPoint(REPoint p2);
 };
-//多边形、折线
+//
 class API KPolygonShape : public KShape
 {
 protected:
@@ -198,7 +198,7 @@ public:
 	void Release();
 	
 };
-//路径
+//
 class API KPathShape : public KShape
 {
 protected:
@@ -263,7 +263,7 @@ public:
 	void addPath(REPath& path, REPaint* pPaint);
 	void addLine(KShape* pShape, REPaint* pPaint);
 
-	// 代替addPolygon,addPath,addRoundRect,addCircle,addEllipse
+	// addPolygon,addPath,addRoundRect,addCircle,addEllipse
 	void addSVGShape(KShape* pShape, REPaint* pFillPaint,REPaint* pStorkPaint);
 
 	void addPolygon(KShape* pShape, REPaint* pFillPaint,REPaint* pStorkPaint);

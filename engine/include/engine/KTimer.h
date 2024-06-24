@@ -22,10 +22,10 @@ class API KTimer:public boost::enable_shared_from_this<KTimer>
 {
 public:
 	KTimer(); 
-	KTimer(int interval, int times = -1); //间隔时间 千分之一秒 和触发次数 -1无限次  
+	KTimer(int interval, int times = -1); //   -1  
 	~KTimer();
 
-	bool isActive() const; //是否活动 start开始活动 stop则不活动
+	bool isActive() const; // start stop
 
 	void setInterval(int v);
 	kn_int getInterval() const;
@@ -33,14 +33,14 @@ public:
 	void setTimes(int value);
 	int getTimes();
 
-	bool start(); //如果不传入screen，使用m_p_view的screen，如果m_p_view也为空，则启动无效
+	bool start(); //screenm_p_viewscreenm_p_view
 	void restart(); 
 	void stop();
-	bool check(); //定时检查函数
+	bool check(); //
 
 	kn_int64 elapsedTime();
 
-	//设置view，更安全，不设置，需要上层保证定时器调用时对应的回调对象是有效的
+	//view
 	void setView(KView_WEAK_PTR);
 	typedef sigslot::signal1<kn_int> TimeOutSignal;	
 	TimeOutSignal m_timeout_signal;
@@ -51,14 +51,14 @@ private:
 
 	kn_int m_interval;
 	int m_times;
-	int m_time; // 运行次数
+	int m_time; // 
 	kn_bool m_b_run;
 	nanosecond_type m_last_time;
 };
 typedef boost::shared_ptr<KTimer> KTimer_PTR;
 typedef std::list<KTimer_PTR> LSTTIMER;
 
-//全局的插入函数
+//
 void AddGLACIERTimer(KTimer_PTR);
 void CheckGLACIERTimer();
 /////////////////////////////////////////////
@@ -71,7 +71,7 @@ public:
 
 
 
-	// 该函数不宜内联
+	// 
 	bool IsActive() const;
 	TimerID GetTimerID() const;
 	kn_int Interval() const;

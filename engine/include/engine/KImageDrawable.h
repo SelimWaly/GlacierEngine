@@ -29,14 +29,13 @@ public:
 
 	kn_bool CreateFromFile(const kn_string& strFile);
 	kn_bool CreateFromSurface(IRESurface* pSurface, kn_bool b_out = FALSE);
-	bool GetImageBound(RERect& rct);	// 返回资源大小, 假如没有资源, 则返回false
-	bool IsNull();	//	资源是否加载成功
-	void SizeToImage(); // 将Drawable拉伸到资源大小
+	bool GetImageBound(RERect& rct);
+	bool IsNull();
+	void SizeToImage(); 
 	void Release();
 	
 	void SetFillType(FillType type);
 
-	// 设置边框，调试用
 	void SetBorder(kn_bool bEnable, REColor color = RE_ColorLTGRAY, int iStrokeWidth = 1);
 	//huw
 	void setTileModeX(SkShader::TileMode mode);
@@ -47,10 +46,9 @@ public:
 protected:
 	IRESurface* m_p_surface;
 	kn_int m_iFillType;
-	//是否释放资源
+	//
 	kn_bool m_b_out_resource;
 
-	// 设置边框，调试用
 	kn_bool m_b_border;
 	REColor m_cl_border_color;
 	kn_int m_i_border_width;
@@ -64,7 +62,6 @@ protected:
 typedef boost::shared_ptr<KImageDrawable> KImageDrawable_PTR;
 
 
-//双缓冲drable
 class API KDBufferDrawable: public KImageDrawable
 {
 
@@ -72,12 +69,9 @@ public:
 	KDBufferDrawable(int w, int h);
 	virtual ~KDBufferDrawable(void);
 
-	//后台绘制，取出后台buffer指针，可以使用此指针进行绘制 绘制完成调用draw_end
 	IRESurface* drawBegin();
 
-	//结束后台绘制
 	void drawEnd();
-	//交换前台和后台buffer
 	void swapBuffer();
 
 protected:
@@ -87,7 +81,6 @@ protected:
 };
 typedef boost::shared_ptr<KDBufferDrawable> KDBufferDrawable_PTR;
 
-//局部Drawable
 class API KImagePartDrawable: public KImageDrawable
 {
 

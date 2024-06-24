@@ -29,11 +29,11 @@ protected:
 	LSTVIEW m_lst_view;
 	IRESurface* m_pSurface;
 
-	LSTVIEW m_del_lst_view; //等待被删除的view，view在自己的消息循环中不能删除自己，到消息循环结束清除
+	LSTVIEW m_del_lst_view; //viewview
 
-	kn_bool m_b_do_clip_msg;//只响应Clip区域的消息
+	kn_bool m_b_do_clip_msg;//Clip
 
-	//viewSizeChange变化时，是否调用子view的viewSizeChange，有的组合控件（grid list等），自己管理布局，不用通过viewSizeChange机制
+	//viewSizeChangeviewviewSizeChangegrid listviewSizeChange
 	kn_bool m_b_change_child_size;
 
 public:
@@ -49,17 +49,17 @@ public:
 
 	virtual void SaveOriginalViewRect();
 
-	//在后台时睡眠
+	//
 	virtual void SleepPage();
 	virtual void Wakeup();
 
 	virtual LSTRECT GetInvalidRect();
 	kn_bool DoMessage(KMessage* pMsg);
 
-	//是否存在引用计数
+	//
 //	virtual kn_bool isRef();
 
-	//子view层级操作
+	//view
 	kn_int findViewIndex(KView_PTR v);
 	void swapViewLayer(KView_PTR v1, KView_PTR v2);
 	void changeViewLayerTop(KView_PTR v);
@@ -77,13 +77,13 @@ public:
 	virtual void resize(RERect);
 	RERect getDrawRectBaseOnChild();
 	
-	//方便应用层快速增加view对象, 对象在内部创建
+	//view, 
 	void createImgViewHelper(KImgButtonView_PTR* view,const kn_string& normalPath,const kn_string& activePath, const kn_string& focusPath,kn_int x,kn_int y);
 	void createImgView9PatchHelper(KImgButtonView_PTR* view,const kn_string& normalPath,const kn_string& activePath, const kn_string& focusPath,kn_int x,kn_int y, kn_int w, kn_int h);
-	// icon_x = ICON_SENTER 居中
+	// icon_x = ICON_SENTER 
 	void createImgView9PatchIconHelper(KImgButtonView_PTR* view,const kn_string& normalPath,const kn_string& activePath, const kn_string& focusPath,const kn_string& iconPath, kn_int x,kn_int y, kn_int w, kn_int h, kn_int icon_x, kn_int icon_y);
 	
-	//带背景图的，宽高自动适应背景，背景图获取失败的，使用传入的宽高值
+	//
 	void createTextViewHelper(KTextView_PTR* view,const kn_string& imgPath,kn_int x,kn_int y,  kn_int w=100, kn_int h=50);
 
 	void createImageHelper(KStaticView_PTR* view,const kn_string& path, kn_int x,kn_int y);
@@ -93,6 +93,6 @@ public:
 };
 
 typedef boost::shared_ptr<KViewGroup> KViewGroup_PTR;
-//group需要生命弱智能指针 避免父子循环指向
+//group 
 typedef boost::weak_ptr<KViewGroup> KViewGroup_WEAK_PTR;
 #endif

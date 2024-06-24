@@ -5,18 +5,18 @@
 #ifndef _KNFILE_H_
 #define _KNFILE_H_
 
-// 使用KNFile前请先Read Me：
-// KNFile主要用于文件读写，为使文件读写独立于操作系统，特编写文件读写类
-// KNFile主要功能有两个：读取变量值、读取一块内存 
-// 请不要将与特定环境有关的变量用于数据读取，否则会引起错误
-// 如：Type.h中定义，当没有定义UNICODE时:kn_char=char；当定义了UNICODE时:kn_char=wchar_t
-// 这里，必须使用明确长度的变量，如：byte,short,long,float,double
+// KNFileRead Me
+// KNFile
+// KNFile 
+// 
+// Type.hUNICODE:kn_char=charUNICODE:kn_char=wchar_t
+// byte,short,long,float,double
 
-// 最好使用KNFile进行文件读取，当操作系统变化，重新实现KNFile的成员函数，接口可以保持不变
+// KNFileKNFile
 
 // This class API now can be only used in Win32.
 
-// 如果要提高速度,将Read函数改为内联函数试试.
+// ,Read.
 
 #include "NE_pubhead.h"
 
@@ -47,13 +47,13 @@ public:
 	kn_bool IsFileOpen() const;
 
 	/*
-	* 函数功能：打开文件 
-	* 参    数：
-	* 		strFileName [in] ：文件名
-	* 		dwShareMode [in]：打开模式(share/exclusive)
-	*		dwCreationDisposition [in]：参考API:CreateFile()
-	*		dwFlagsAndAttributes [in]：参考API:CreateFile()
-	* 返 回 值：错误信息
+	*  
+	*     
+	* 		strFileName [in] 
+	* 		dwShareMode [in](share/exclusive)
+	*		dwCreationDisposition [in]API:CreateFile()
+	*		dwFlagsAndAttributes [in]API:CreateFile()
+	*   
 	*/ 
 	virtual kn_long OpenFile(const kn_string& strFileName,
 							 kn_dword dwDesiredAccess = GENERIC_READ,
@@ -62,30 +62,30 @@ public:
 							 kn_dword dwFlagsAndAttributes = FILE_ATTRIBUTE_READONLY);
 
 	/*
-	* 函数功能：关闭文件
-	* 返 回 值：错误信息
+	* 
+	*   
 	*/ 
 	virtual kn_long CloseFile();
 
 	/*
-	* 函数功能：移动文件句柄到指定位置，兼容被打包文件与普通文件
-	* 参    数：
-	* 		lOffset [in] ：移动大小
-	* 		dwMoveMethod [in]：0-文件头  1-当前位置  2-文件尾
-	* 返 回 值：错误信息
+	* 
+	*     
+	* 		lOffset [in] 
+	* 		dwMoveMethod [in]0-  1-  2-
+	*   
 	*/ 
 	virtual KNRESULT Seek(kn_long lOffset, kn_dword dwMoveMethod);
 
 	/*
-	* 函数功能：刷新缓存
-	* 参    数：
-	* 返 回 值：错误信息
+	* 
+	*     
+	*   
 	*/ 
 	virtual KNRESULT Flush();
 
-    // 如下接口为针对被打包文件而言
+    // 
     //////////////////////////////////////////////////////////////////////////
-    /* 函数功能：取得文件大小
+    /* 
     * 
     * @param ulSize    ulSize
     */
@@ -93,8 +93,8 @@ public:
 
 
 	/*
-	* 函数功能：取得当前文件指针的位置 
-	* 返 回 值：相对文件起始位置的位置
+	*  
+	*   
 	*/ 
 	virtual kn_long Tell();
     //////////////////////////////////////////////////////////////////////////

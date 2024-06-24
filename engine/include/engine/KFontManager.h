@@ -48,7 +48,7 @@ private:
 	// 	boost::unordered_map<string, RETypeface*> m_FontNameMap;
 	// 	boost::unordered_map<kn_string, RETypeface*> m_FontFileMap;
 	mapFontNameMap m_FontNameMap;
-	mapFontNameMap m_FontBoldNameMap; //粗体和非粗体需要区分
+	mapFontNameMap m_FontBoldNameMap; //
 	mapFontFileMap m_FontFileMap;
 	mapFontPropMap m_FontPropMap;
 

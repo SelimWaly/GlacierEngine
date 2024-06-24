@@ -44,7 +44,7 @@ public:
 	virtual void setRect(int l, int t, int w, int h);
 
 	virtual void sizeChange(RERect& parent_rect, RERect& parent_rect_origin);
-	//clip 也处理 所以再封装一层
+	//clip  
 	virtual RERect calcSizeChange(RERect& src,  RERect& parent_rect, RERect& parent_rect_origin);
 	virtual void SetViewChangeType(IN LRMethod LeftType,IN LRMethod RightType,IN BTMethod TopType,IN BTMethod BottomType);
 	virtual void SaveOriginalViewRect();
@@ -59,13 +59,13 @@ public:
 
 
 protected:
-	RERect m_rect;				// view的原始范围, 相对于上一级的坐标
-	// 设置view的裁剪区
+	RERect m_rect;				// view, 
+	// view
 	kn_bool m_b_clip;
 	RERect m_rect_clip;
 	kn_bool m_b_show;
 
-	//每条边改变方式
+	//
 	LRMethod m_LRMethod_left;
 	LRMethod m_LRMethod_right;
 	BTMethod m_BTMethod_top;
@@ -97,23 +97,23 @@ protected:
 
 	REPaint m_paint;
 
-	// 绘制时是否根据自己的m_rect进行区域裁剪
+	// m_rect
 	kn_bool m_b_clip_rect;
-	//是否显示，考虑控件有不同状态，drawable也可以控制是否显示
+	//drawable
 
 	KDRAWABLETYPE m_type;
 
-	//view尺寸变化是否自动自适应
+	//view
 	kn_bool m_b_auto_size;
 
-	//drawable的绘制读写锁
+	//drawable
 	boost::shared_mutex m_drawable_draw_mutex; 
 public:
 
 	KDrawable();
 
 	virtual void Draw(IRESurface* pDstSurface, const REMatrix* pMatrix = 0, int iDstX = 0, int iDstY = 0);
-	///如下BeginDraw EndDraw函数封装drawable draw 的通用处理，简化各子类的draw函数
+	///BeginDraw EndDrawdrawable draw draw
 	virtual bool BeginDraw(IRESurface* pDstSurface, const REMatrix* pMatrix = 0, int iDstX = 0, int iDstY = 0);
 	virtual void EndDraw(IRESurface* pDstSurface, const REMatrix* pMatrix = 0);
 
@@ -125,7 +125,7 @@ public:
 	void CreateFromResource();
 	KDRAWABLETYPE getType();
 
-	//判断点是否在drawable内部
+	//drawable
 	virtual kn_bool checkPoint(int x, int y);
 
 	kn_bool getAutoSize();

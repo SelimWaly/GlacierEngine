@@ -33,7 +33,7 @@
 //#ifdef _DEBUG
 //    #ifdef WIN32
 //		#ifndef _SYSTEMMONITOR
-//		#define _SYSTEMMONITOR // 启用监测系统
+//		#define _SYSTEMMONITOR // 
 //		#endif
 //    #endif
 //#endif

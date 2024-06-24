@@ -31,7 +31,7 @@ public:
 		kn_string GetStringByID(kn_string nStringKey);
 		kn_bool AddString(kn_string sKey,kn_string sValue);
 		/**
-		* string转换kn_string
+		* stringkn_string
 		*/
 		inline kn_string s2ns(const std::string& s)
 		{

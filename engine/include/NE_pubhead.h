@@ -1,16 +1,6 @@
 ﻿//  **************************************
 //  File:        NE_pubhead.h
 //  ***************************************
-/**
-* 文件名称：pubhead.h
-* 摘    要：统一共公头文件，所有头文件均需包含该头文件
-    pubhead.h文件为所有头文件均需包含的共公头文件，它进一步包括：
-    1. configure.h 编译预处理相关配置
-    2. type.h 基础数据类型定义
-    3. macro.h 通用宏定义
-    4. error.h 错误码定义
-    5. debug.h 调试用的相关头文件声明，如assert宏定义，日志宏等
-**/
 
 #ifndef _NE_PUBHEAD_H_
 #define _NE_PUBHEAD_H_
@@ -27,7 +17,7 @@
 #include <assert.h>
 #include <unistd.h>
 #include <sys/resource.h>
-extern bool g_bLogEnable;	//	是否允许log
+extern bool g_bLogEnable;	//	log
 #endif
 using namespace std;
 #include "NE_type.h"

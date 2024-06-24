@@ -64,7 +64,7 @@ typedef std::basic_string<kn_char>   kn_string;
 	typedef unsigned int UINT;
 #endif // LINUX
 
-// 函数返回值
+// 
 #ifdef WIN32
     typedef kn_uint KN_THREAD_PROC_RETURN_VALUE_TYPE;
 #else

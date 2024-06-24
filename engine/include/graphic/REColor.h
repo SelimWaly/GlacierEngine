@@ -8,14 +8,14 @@
 
 typedef  SkColor REColor;
 
-//颜色转换宏
+//
 #define RGB555(r, g, b) ((((b) >> 3) & 31) + ((((g) >> 3) & 31) << 5) + ((((r)>>3) & 31) << 10))
 #define RGB565(r, g, b) ((((b) >> 3) & 31) + ((((g) >> 2) & 63) << 5) + ((((r)>>3) & 31) << 11))
 #define RGB888(r, g, b) ( ((b) & 0xff) + (((g) & 0xff) << 8) + (((r) & 0xff) << 16))
 
 #define ARGB(a,r,g,b) SkColorSetARGB(a, r, g, b)
  
-//分离颜色宏
+//
 #define GetRPart_555(color) (unsigned char )(((color >> 10) & 31) << 3)
 #define GetGPart_555(color) (unsigned char )(((color >> 5) & 31) << 3)
 #define GetBPart_555(color) (unsigned char )((color & 31)<<3)

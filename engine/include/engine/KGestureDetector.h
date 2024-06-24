@@ -35,10 +35,10 @@ public:
 	// zoom, 
 	kn_int m_type;
 
-	// 两指距离
+	// 
 	kn_float m_zoom_span;
 
-	// 中心点
+	// 
 	kn_float m_center_x;
 	kn_float m_center_y;
 	 

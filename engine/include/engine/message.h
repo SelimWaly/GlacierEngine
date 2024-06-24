@@ -7,19 +7,19 @@
 #include <boost/thread/thread.hpp>
 #include "KObject.h"
 void MyTrace(LPCTSTR lpsz, ...);
-//消息大类别
+//
 enum KMSGTYPE
 {
-	KMSG_TYPE_NONE, //无效类别,基类使用
-	KMSG_TYPE_KEY, //键盘类消息
-	KMSG_TYPE_POS, //带有位置信息的消息，如鼠标，触摸屏等有位置坐标的消息，大类别
-	KMSG_TYPE_MOUSE, //鼠标消息
-	KMSG_TYPE_MOUSE_WHELL, //鼠标消息
-	KMSG_TYPE_TOUCH, //触摸消息
-	KMSG_TYPE_3DX,	//	3Dx鼠标
-	KMSG_TYPE_USER,	//用户消息
-	KMSG_TYPE_INPUT,  //输入法，
-	KMSG_TYPE_DRAG  //输入法，
+	KMSG_TYPE_NONE, //,
+	KMSG_TYPE_KEY, //
+	KMSG_TYPE_POS, //
+	KMSG_TYPE_MOUSE, //
+	KMSG_TYPE_MOUSE_WHELL, //
+	KMSG_TYPE_TOUCH, //
+	KMSG_TYPE_3DX,	//	3Dx
+	KMSG_TYPE_USER,	//
+	KMSG_TYPE_INPUT,  //
+	KMSG_TYPE_DRAG  //
 	
 };
 
@@ -55,13 +55,13 @@ enum KMESSAGETYPE
 
 	KMSG_SCREEN_DRAW,
 
-	KMSG_TYPE_INPUT_ING,  // 输入中
-	KMSG_TYPE_INPUT_END,  // 输入结束
+	KMSG_TYPE_INPUT_ING,  // 
+	KMSG_TYPE_INPUT_END,  // 
 	KMSG_TYPE_CHAR,
 
-	KMSG_TYPE_IME_UPDATE, // 输入法Edit控件更新
-	KMSG_DRAG, //拖动移动消息
-	KMSG_DRAG_UP, //拖动up消息
+	KMSG_TYPE_IME_UPDATE, // Edit
+	KMSG_DRAG, //
+	KMSG_DRAG_UP, //up
 
 	KMSG_END,
 	KMSG_USER = 10000
@@ -69,10 +69,10 @@ enum KMESSAGETYPE
 };
 
 enum KMESSAGETYPE
-{//这里的消息是传递给windows层用于分发的自定义消息
+{//windows
 	//KGLACIERMSG_DRAW = 20000,
-	//KGLACIERMSG_DRAG = 20001, //拖动移动消息
-	//KGLACIERMSG_DRAG_UP = 20002, //拖动up消息
+	//KGLACIERMSG_DRAG = 20001, //
+	//KGLACIERMSG_DRAG_UP = 20002, //up
 	KGLACIERMSG_USER=30000
 };
 
@@ -83,9 +83,9 @@ enum KMESSAGETYPE
 enum KMESSAGE_RETURN_TYPE
 {
 	
-	KMSG_RETURN_DEFAULT, // 缺省处置
-	KMSG_RETURN_DILE,  //消息已被处理
-	KMSG_RETURN_CONTINUE, //消息强制继续处理
+	KMSG_RETURN_DEFAULT, // 
+	KMSG_RETURN_DILE,  //
+	KMSG_RETURN_CONTINUE, //
 };
 class KView;
 typedef boost::shared_ptr<KView> KView_PTR;
@@ -96,15 +96,15 @@ public:
 	KMessage();
 	virtual ~KMessage(){};
 
-	KMSGTYPE m_msg_class_type; //大类别
-	KMESSAGETYPE m_msg_type; //小类别
+	KMSGTYPE m_msg_class_type; //
+	KMESSAGETYPE m_msg_type; //
 	kn_uint m_wParam;
 	kn_uint m_lParam;
 	KView_PTR  m_p_view;
 	KMESSAGE_RETURN_TYPE m_b_idle;
 	static KMessage* getMsgForWin32( HWND hWnd,UINT message, WPARAM wParam, LPARAM lParam);
 	virtual void transMsgForWin32(UINT message, WPARAM wParam, LPARAM lParam){};
-	//是否带轨迹
+	//
 	kn_bool HasPos();
 	void setIdle(KMESSAGE_RETURN_TYPE idle){m_b_idle = idle;};
 	KMESSAGE_RETURN_TYPE getIdle(){return m_b_idle;};
@@ -117,13 +117,13 @@ public:
 	virtual ~KMessageKey(){};
 
 	kn_int m_key_id;
-	kn_int m_key_flag;//辅助键状态
-	kn_int m_repeat_count;//长按按键的重复次数
+	kn_int m_key_flag;//
+	kn_int m_repeat_count;//
 	virtual void transMsgForWin32(UINT message, WPARAM wParam, LPARAM lParam);
 };
 
 class API KMessagePos : public KMessage
-{//作为有轨迹的消息的基类，
+{//
 public:
 	KMessagePos();
 	virtual ~KMessagePos(){};
@@ -139,7 +139,7 @@ public:
 	virtual ~KMessageMouseWheel(){};
 	virtual void transMsgForWin32(UINT message, WPARAM wParam, LPARAM lParam);
 	kn_int m_roll;
-	kn_int m_key_flag;//辅助键状态
+	kn_int m_key_flag;//
 };
 
 
@@ -168,9 +168,9 @@ public:
 	HWND m_wnd;
 
 
-	int m_iPointCount;	//	触摸点个数
-	int* m_ids;	// 标志point id
-	int* m_xs;	// 多点坐标
+	int m_iPointCount;	//	
+	int* m_ids;	// point id
+	int* m_xs;	// 
 	int* m_ys;
  
 
@@ -196,7 +196,7 @@ public:
 	kn_string m_InputStr;
 };
 
-// 用于接收输入法结果的EditText: onTextChange
+// EditText: onTextChange
 //TextWatcher::onTextChanged(CharSequence s, int start, int before, int count)
 class API KMessageEditTextIME : public KMessageInput
 {
@@ -207,13 +207,13 @@ public:
 	//kn_string m_InputStr;
 
 
-	 // 添加文字的位置(从0开始)
+	 // (0)
 	kn_int m_i_start;
 
-	// 文字改变的位置
+	// 
 	kn_int m_i_before;
 
-	// 添加的文字总数
+	// 
 	kn_int m_i_count;
 
 };
@@ -228,7 +228,7 @@ public:
 	
 };
 
-// createwindow 后调用
+// createwindow 
 bool CheckTouchSupport(HWND wnd);
 
 

@@ -34,13 +34,13 @@ public:
 
 	void setOutBoundDot();
 
-	//Textclip是设置text drawable,注意坐标是View内的相对坐标
+	//Textcliptext drawable,View
 	void SetTextClip(RERect rect);
 	RERect GetTextBound();
 	RERect GetTextClip();
 
-	void setBKGColor(REColor color);        //设置背景颜色
-	//设置背景
+	void setBKGColor(REColor color);        //
+	//
 	void setBKGImage(const kn_string& filepath);
 	void setBKDrawable( KDrawable_PTR );
 	void setIconImage(const kn_string& resPath);
@@ -66,7 +66,7 @@ public:
 
 	//RERect GetTextClipByView();
 	//void SetTextClipByView(RERect rect);
-	//增加对图片透明度的判断
+	//
 	virtual kn_bool isPointInView(int x, int y);
 	void checkAlpha(kn_bool);
 	void setCheckAlphaDrawable( KImageDrawable_PTR b);
@@ -78,11 +78,11 @@ protected:
 	KTextDrawable_PTR	m_text_drawable;
 
 protected:
-	// 动画线程
+	// 
 	CAnimationThread m_ani_thread_txt;
-	//点击区域是否判断图片的alpha通道
+	//alpha
 	kn_bool m_b_check_alpha;
-	//用于检查Alpha的drawable
+	//Alphadrawable
 	KDrawable_PTR m_check_alpha_da;
 };
 
@@ -140,10 +140,10 @@ protected:
 	REColor		m_text_pressed_color;
 	REColor		m_text_disable_color;
 
-	// 允许更换光标形状: enter 手型，leave 箭头
+	// : enter leave 
 	kn_bool		m_b_enable_cursor_change;
 
-	// 允许state变化
+	// state
 	kn_bool		m_b_enable_state_change;
 
 };

@@ -32,7 +32,7 @@ private:
 	KDrawable_PTR m_focus_bk_drawable;
 	KDrawable_PTR m_selected_bk_drawable;
 	KDrawable_PTR m_disable_bk_drawable;
-	//点击区域是否判断图片的alpha通道
+	//alpha
 	kn_bool m_b_check_alpha;
 };
 typedef boost::shared_ptr<KImgButtonView> KImgButtonView_PTR;

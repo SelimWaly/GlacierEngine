@@ -334,7 +334,7 @@ inline void Sleep(DWORD dwMilliseconds)
 
 
 //-------------------------------------------------------------------
-//	待完成 BEGIN
+//	 BEGIN
 //-------------------------------------------------------------------
 inline kn_handle CreateEvent(
 				   void* lpEventAttributes,
@@ -368,7 +368,7 @@ inline BOOL ResetEvent(kn_handle hEvent)
 }
 
 //-------------------------------------------------------------------
-//	待完成	END
+//		END
 //-------------------------------------------------------------------
 inline long GetTickCount()
 {
@@ -501,7 +501,7 @@ inline wchar_t *_ltow( long value, wchar_t* string, int radix)
 inline int _wtoi( const wchar_t *string )
 {
 #ifdef ANDROID_NDK
-	// android 下没有实现wcstof
+	// android wcstof
 	char sz[128] = {0};
 	wcstombs(sz, string, 60);
 
@@ -514,7 +514,7 @@ inline int _wtoi( const wchar_t *string )
 inline float _wtof( const wchar_t *string )
 {
 #ifdef ANDROID_NDK
-	// android 下没有wcstof
+	// android wcstof
 	char sz[128] = {0};
 	wcstombs(sz, string, 60);
 	
@@ -541,10 +541,10 @@ int swprintf_linux( wchar_t *buffer, const wchar_t *format, ... );
 FILE *_wfopen(const wchar_t* filename, const wchar_t* mode);
 
 
-//	通过main的参数得到可执行文件名
+//	main
 void SetModuleFileName (char* pszFile);
 
-//	得到EXE路径
+//	EXE
 DWORD GetModuleFileName(void* hModule,LPWSTR lpFilename, DWORD nSize);
 
 

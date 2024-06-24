@@ -13,7 +13,7 @@
 typedef FILE* KNFILEHANDLE;
 
 /**
- * 文件类
+ * 
  * @author zhifangh
  * @version 1.0
  * @created 26-Mar-2010 16:42:38
@@ -24,128 +24,128 @@ class API KFile
 public:
 
 	/**
-	 * 构造函数
+	 * 
 	 */
 	KFile();
 	/**
-	 * 析构函数
+	 * 
 	 */
     virtual ~KFile();
 
 	/**
-	 * 打开文件 参考API:CreateFile()
+	 *  API:CreateFile()
 	 * 
-	 * @param strFileName    文件名
+	 * @param strFileName    
 	 * @param dwDesiredAccess
-	 * @param dwShareMode    打开模式(share/exclusive)
+	 * @param dwShareMode    (share/exclusive)
 	 * @param dwCreationDisposition
 	 * @param dwFlagsAndAttributes 
 	 */
 	virtual KNRESULT Open(IN const kn_string& strFileName, IN kn_dword dwDesiredAccess = GENERIC_READ, IN kn_dword dwShareMode = FILE_SHARE_READ, IN kn_dword dwCreationDisposition = OPEN_EXISTING, IN kn_dword dwFlagsAndAttributes = FILE_ATTRIBUTE_READONLY);
 	/**
-	 * 关闭文件
+	 * 
 	 */
 	virtual KNRESULT Close();
 	/**
-	 * 获取文件句柄
+	 * 
 	 */
 	virtual const KNFILEHANDLE& GetHandle() const;
 	/**
-	 * 函数功能：取得文件大小
+	 * 
 	 * 
 	 * @param ulSize    ulSize
 	 */
 	virtual KNRESULT GetSize(IN kn_ulong& ulSize);
 	/**
-	 * 函数功能：取得当前文件指针的位置
+	 * 
 	 */
 	virtual kn_long Tell();
 	/**
-	 * 函数功能：移动文件句柄到指定位置
 	 * 
-	 * @param lOffset    移动大小
-	 * @param dwMoveMethod    SEEK_SET-文件头  SEEK_CUR-当前位置  SEEK_END-文件尾
+	 * 
+	 * @param lOffset    
+	 * @param dwMoveMethod    SEEK_SET-  SEEK_CUR-  SEEK_END-
 	 */
 	virtual KNRESULT Seek(IN kn_long lOffset, IN kn_dword dwMoveMethod);
 	/**
-	 * 函数功能：刷新缓存
+	 * 
 	 */
 	virtual KNRESULT Flush();
 	/**
-	 * 是否打开
+	 * 
 	 */
 	kn_bool IsOpen() const;
 	/**
-	 * 是否存在
+	 * 
 	 * 
 	 * @param strFileName
 	 */
 	kn_bool IsExist(IN string strFileName);
 	/**
-	 * 读kn_byte
+	 * kn_byte
 	 * 
-	 * @param value    存储对象
+	 * @param value    
 	 */
 	virtual KNRESULT Read(IN kn_byte& value);
 	/**
-	 * 读char
+	 * char
 	 * 
-	 * @param value    存储对象
+	 * @param value    
 	 */
 	//virtual KNRESULT Read(IN char& value);
 	/**
-	 * 读kn_char
+	 * kn_char
 	 * 
-	 * @param value    存储对象
+	 * @param value    
 	 */
 	virtual KNRESULT Read(IN kn_char& value);
 	/**
-	 * 读kn_word
+	 * kn_word
 	 * 
-	 * @param value    存储对象
+	 * @param value    
 	 */
 	virtual KNRESULT Read(IN kn_word& value);
 	/**
-	 * 读kn_dword
+	 * kn_dword
 	 * 
-	 * @param value    存储对象
+	 * @param value    
 	 */
 	virtual KNRESULT Read(IN kn_dword& value);
 	/**
-	 * 读kn_short
+	 * kn_short
 	 * 
-	 * @param value    存储对象
+	 * @param value    
 	 */
 	virtual KNRESULT Read(IN kn_short& value);
 	/**
-	 * 读kn_int
+	 * kn_int
 	 * 
-	 * @param value    存储对象
+	 * @param value    
 	 */
 	virtual KNRESULT Read(IN kn_int& value);
 	/**
-	 * 读kn_long
+	 * kn_long
 	 * 
-	 * @param value    存储对象
+	 * @param value    
 	 */
 	virtual KNRESULT Read(IN kn_long& value);
 	/**
-	 * 读kn_float
+	 * kn_float
 	 * 
-	 * @param value    存储对象
+	 * @param value    
 	 */
 	virtual KNRESULT Read(IN kn_float& value);
 	/**
-	 * 读kn_double
+	 * kn_double
 	 * 
-	 * @param value    存储对象
+	 * @param value    
 	 */
 	virtual KNRESULT Read(IN kn_double& value);
 	/**
-	 * 从当前位置读取一块内存
 	 * 
-	 * @param pBuff    已经申请的内存
-	 * @param ulSize    读取的数据块的大小
+	 * 
+	 * @param pBuff    
+	 * @param ulSize    
 	 */
 	virtual KNRESULT Read(IN void* pBuff, IN const kn_ulong ulSize);
 	/**
@@ -156,86 +156,86 @@ public:
 	 */
 	virtual KNRESULT Read(IN void* pBuff, IN const kn_ulong ulSizeToRead, IN kn_ulong& ulSizeReturn);
 	/**
-	 * 反序读kn_word
+	 * kn_word
 	 * 
-	 * @param value    存储对象
+	 * @param value    
 	 */
 	virtual KNRESULT ReadReverse(IN kn_word& value);
 	/**
-	 * 反序读kn_dword
+	 * kn_dword
 	 * 
-	 * @param value    存储对象
+	 * @param value    
 	 */
 	virtual KNRESULT ReadReverse(IN kn_dword& value);
 	/**
-	 * 写kn_byte
+	 * kn_byte
 	 * 
-	 * @param value    写入对象
+	 * @param value    
 	 */
 	virtual KNRESULT Write(IN kn_byte& value);
 	/**
-	 * 写char
+	 * char
 	 * 
-	 * @param value    写入对象
+	 * @param value    
 	 */
 	//virtual KNRESULT Write(IN char& value);
 	/**
-	 * 写kn_char
+	 * kn_char
 	 * 
-	 * @param value    写入对象
+	 * @param value    
 	 */
 	virtual KNRESULT Write(IN kn_char& value);
 	/**
-	 * 写kn_word
+	 * kn_word
 	 * 
-	 * @param value    写入对象
+	 * @param value    
 	 */
 	virtual KNRESULT Write(IN kn_word& value);
 	/**
-	 * 写kn_dword
+	 * kn_dword
 	 * 
-	 * @param value    写入对象
+	 * @param value    
 	 */
 	virtual KNRESULT Write(IN kn_dword& value);
 	/**
-	 * 写kn_short
+	 * kn_short
 	 * 
-	 * @param value    写入对象
+	 * @param value    
 	 */
 	virtual KNRESULT Write(IN kn_short& value);
 	/**
-	 * 写kn_int
+	 * kn_int
 	 * 
-	 * @param value    写入对象
+	 * @param value    
 	 */
 	virtual KNRESULT Write(IN kn_int& value);
 	/**
-	 * 写kn_long
+	 * kn_long
 	 * 
-	 * @param value    写入对象
+	 * @param value    
 	 */
 	virtual KNRESULT Write(IN kn_long& value);
 	/**
-	 * 写kn_float
+	 * kn_float
 	 * 
-	 * @param value    写入对象
+	 * @param value    
 	 */
 	virtual KNRESULT Write(IN kn_float& value);
 	/**
-	 * 写kn_double
+	 * kn_double
 	 * 
-	 * @param value    写入对象
+	 * @param value    
 	 */
 	virtual KNRESULT Write(IN kn_double& value);
 	/**
-	 * 写一块内存
 	 * 
-	 * @param pBuff    写入缓冲区
-	 * @param ulSize    写入大小
+	 * 
+	 * @param pBuff    
+	 * @param ulSize    
 	 */
 	virtual KNRESULT Write(IN const void* pBuff, IN const kn_ulong ulSize);
 
-    // 重载>>运算符
+    // >>
     KFile& operator >> (kn_bool &value);
     KFile& operator >> (kn_byte &value);
     //KFile& operator >> (char &value);
@@ -253,7 +253,7 @@ public:
     KFile& operator >> (char *&value);
     KFile& operator >> (wchar_t *&value);
 
-    // 重载<<运算符
+    // <<
     KFile& operator << (const kn_bool value);
     KFile& operator << (const kn_byte value);
     //KFile& operator << (const char value);
@@ -274,29 +274,29 @@ public:
 protected:
 
 	/**
-	* 尝试重新打开文件，恢复文件读取位置
+	* 
 	*/
 	virtual kn_long TryReOpenFile();
 
 protected:
 	/**
-	 * 文件名
+	 * 
 	 */
 	kn_string m_strName;
 	/**
-	 * 文件大小
+	 * 
 	 */
 	kn_ulong m_ulSize;
 	/**
-	 * 文件句柄
+	 * 
 	 */
 	KNFILEHANDLE m_hFile;
 	/**
-	 * 当前位置
+	 * 
 	 */
 	kn_long m_lCursor;
 	/**
-	 * 是否打开
+	 * 
 	 */
 	kn_bool m_bIsOpen;
 
@@ -311,7 +311,7 @@ protected:
 	kn_long m_lPostion;
 
 	/**
-	* 打包文件的实际文件名,
+	* ,
 	*/	
 	kn_string m_strRealFileName;
 

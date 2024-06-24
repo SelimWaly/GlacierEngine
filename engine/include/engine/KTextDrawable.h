@@ -34,14 +34,14 @@ public:
 
 	virtual int getTextWidth();
 
-	// 设置粗体
+	// 
 	void setBold(kn_bool b);
 	kn_bool isBold();
 
 	void setTextFrame(kn_bool b);
 	kn_bool isTextFrame();
 
-	// 设置超长时添加省略号
+	// 
 	void setOutBoundDot();
 };
 

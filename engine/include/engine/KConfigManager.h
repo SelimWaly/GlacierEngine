@@ -24,17 +24,17 @@ private:
 
 		TiXmlDocument *m_pXmldoc;
 		
-		// config的节点
-		TiXmlElement* m_oneLayerElement;	//只有一级内容
-		TiXmlElement* m_twoLayerElement;	//有两级的内容(目前给历史记录用)
+		// config
+		TiXmlElement* m_oneLayerElement;	//
+		TiXmlElement* m_twoLayerElement;	//()
 		/**
-		* 加载
+		* 
 		*/
 		kn_bool loadConfigFromFile(kn_string strFilePath);
 
 		string m_file;
 		int m_language;
-		//程序的全路径
+		//
 		kn_string m_app_path;
 public:
 		KConfigManager(kn_string strFilePath);
@@ -42,18 +42,18 @@ public:
 		~KConfigManager();
 
 		/**
-		* 保存
+		* 
 		*/
 		void saveConfig();
 		kn_string getAppPath();
 		/**
-		* 设置
+		* 
 		*/
 		kn_bool setConfig(const kn_string strValue,const kn_string str);
 		kn_bool setConfig(const kn_string strValue,const kn_int v);
 
 		/**
-		* 查询
+		* 
 		*/
 		kn_string getConfig(const kn_string str);
 		kn_int getIntConfig(const kn_string str);
@@ -61,12 +61,12 @@ public:
 		kn_string getLanguageImagePath();
 
 		/**
-		* 获取一组配置(给历史记录用)
+		* ()
 		*/
 		void GetVectorConfig(const kn_string& str, vector<kn_string>& vHistory );
 		
 		/**
-		* 添加历史记录
+		* 
 		*/
 		kn_bool addHistoryConfig(const kn_string& str, const kn_string& strHistory );
 };

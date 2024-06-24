@@ -25,37 +25,37 @@ class API KSvgAnalyzing
 public:
 	KSvgAnalyzing();
 	~KSvgAnalyzing(void);
-	//load文件进行解析
+	//load
 	void LoadSvgFile(kn_string& filePath,vector<KShape* >& pShapeList, RERect& rect,bool bScaleFlag);
 private:
-	//解析矩形
+	//
 	KShape* GetRectInfo(TiXmlElement* nodeElement);
-	//解析圆形
+	//
 	KShape* GetCircleInfo(TiXmlElement* nodeElement);
-	//解析椭圆形
+	//
 	KShape* GetEllipseInfo(TiXmlElement* nodeElement);
-	//解析直线
+	//
 	KShape* GetLineInfo(TiXmlElement* nodeElement);
-	//解析折线
+	//
 	KShape* GetPolylineInfo(TiXmlElement* nodeElement);
-	//解析多边形
+	//
 	KShape* GetPolygonInfo(TiXmlElement* nodeElement);
-	//解析路径
+	//
 	KShape* GetPathInfo(TiXmlElement* nodeElement);
-	//将路径字符串分段
+	//
 	void GetPathsData(char* pPoints, REPath& path);
-	//将每段路径字符串解析为对应的数据
+	//
 	void AnalyzingPath(vector<string>& sectionList,REPath& path);
-	//将数据转换为skia的path对应数据
+	//skiapath
 	void SvgToSkiaData(vector<PathData>& pathDataList, REPath& path);
-	//将珀polygon对应坐标点字符串转为对应数据
+	//polygon
 	void GetPointsData(char* pPoints,vector<REPoint>& pointList);
-	//根据svg Arc 参数计算出skia对应数据
+	//svg Arc skia
 	ArcData ComputeArc(float x0, float y0,float rx, float ry,float angle,bool largeArcFlag,bool sweepFlag,float x, float y);
-	//设置填充颜色，填充透明度，边框等基类有属性
+	//
 	void SetShapePublicAttr(KShape* pShape,char* pName, char* pAttr);
-	float m_scale; //图片缩放比例
-	bool m_bScale; //是否进行缩放
+	float m_scale; //
+	bool m_bScale; //
 };
 #endif //  _KSVGANALYZING_H__
 

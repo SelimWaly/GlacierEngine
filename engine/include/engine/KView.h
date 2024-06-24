@@ -61,7 +61,7 @@ enum VIEW_TRANSFORM_FLAG
 };
 
 
-// 可动画的属性参数定义
+// 
 #define PropertyPARA_ID_POS_X		1
 #define PropertyPARA_ID_POS_Y		2
 #define PropertyPARA_ID_Opacity		3
@@ -69,9 +69,9 @@ enum VIEW_TRANSFORM_FLAG
 #define PropertyPARA_ID_ScaleX		5
 #define PropertyPARA_ID_ScaleY		6
 #define PropertyPARA_ID_View		200
-#define PropertyPARA_ID_USER		1000 //应用层从这个开始定义
+#define PropertyPARA_ID_USER		1000 //
 
-//模态窗口的返回值
+//
 #define KN_REUSLT_OK			0
 #define KN_REUSLT_CANCLE		1
 #define KN_REUSLT_USER			100
@@ -84,21 +84,19 @@ class API KView : public KShowObject, public sigslot::has_slots<>, public boost:
 public:
 	KView();
 	virtual ~KView();
-	//zhic 扩展的智能指针机制，在构造函数结束被自动调用，解决构造函数不能获得shared_from_this问题，运行到这个函数时已可获得
-	//注意子类如果重载必须要先调用基类函数
 	virtual void shared_ptr_inited(); 
 
 	virtual void Release();
 	virtual kn_bool Create(kn_int iX, kn_int iY, kn_int iWidth, kn_int iHeight);
     virtual kn_bool Create(const RERect& rect);
 
-	//除了groupview  各子类不要继承draw函数,异步渲染机制下，draw，RefreshSurface是独立线程调用
+	//groupview  draw,drawRefreshSurface
 	virtual void Draw(IRESurface* pDstSurface, kn_int x, kn_int y);
 	virtual void Draw(IRESurface* pDstSurface, LSTRECT& rect, kn_int x, kn_int y);
 	virtual kn_bool DoMessage(KMessage* pMsg);
 	virtual kn_bool DoFocusMessage(KMessage* pMsg);
 
-	//绘制view到指定surface，有cache时是本地surface，无cache是主surface
+	//viewsurfacecachesurfacecachesurface
 	virtual void RefreshSurface(IRESurface* pDstSurface, kn_int x, kn_int y);
 
 	virtual void RefreshCache();
@@ -108,14 +106,14 @@ public:
 	void SetScreen(KScreen * p);
 	KVIEWTYPE getType();
 
-	//创建drawable的简化函数 根据需要可支持更多类别
+	//drawable 
     void createTextDrawableHelper(KTextDrawable_PTR* text_da_,kn_string str, int fontsize, kn_int x,kn_int y, kn_int w, kn_int h, REColor r = RE_ColorBLACK, REPaint::Align align= REPaint::kLeft_Align);
 	void createColorDrawableHelper(KColorDrawable_PTR* color_da, kn_int x,kn_int y, kn_int w, kn_int h, REColor r = RE_ColorBLACK);
 
-	//通过这个函数可以设置是否让位置消息向下层传递
+	//
 	void	SetShieldMsg(kn_bool b);
 
-	virtual kn_uint addDrawable(KDrawable_PTR); //返回加入的drawable的索引位置
+	virtual kn_uint addDrawable(KDrawable_PTR); //drawable
 
 	void enableMessage(kn_bool b);
 
@@ -131,52 +129,52 @@ public:
 	virtual void SetParent(KViewGroup_WEAK_PTR pPageView);
 	virtual KViewGroup_PTR GetParent();
 
-	//////////// 针对异步渲染提供的异步设置参数函数 更安全
+	////////////  
 	void requestSetPosition(kn_int iX, kn_int iY);
 	///////////////
 
 	virtual void UpdateUI ();
-	// 设置局部刷新区域
-	//传入的坐标相对于view本身
+	// 
+	//view
 	virtual void InvalidateRect(RERect r);
-	//刷新控件自身
+	//
 	virtual void InvalidateView(kn_bool bRefresh=TRUE);
-	//传入的坐标相对于view上级
+	//view
 	virtual void InvalidateForParent(RERect& r);
 	virtual void clearInvalidRect();
 
-	// 检查点是否在view内部，除了view范围，还有裁剪区处理，应统一使用这个函数,坐标为parent坐标系
+	// viewview,parent
 	virtual kn_bool isPointInView(int x, int y);
-	// 获取位置大小
+	// 
 //	virtual RERect GetRect();
 	virtual void SetRect(const RERect& rect);
-	// 变换操作
-	// 获取变换后的包围盒
+	// 
+	// 
 	virtual RERect GetBoundRect();
-	////////变形函数统一在绘制时处理矩阵，这些函数仅仅只是设置对应变换值，因为要在绘制时转为屏幕坐标
+	////////
 
-	// 平移, 非累加
+	// , 
 	virtual void SetTranslate(REScalar dx, REScalar dy);
-	// 缩放, 非累加
+	// , 
 	virtual void SetScale(REScalar sx, REScalar sy, REScalar px = 0, REScalar py = 0);
 	virtual void SetScalePoint( REScalar px, REScalar py );
 	virtual void SetScaleX( REScalar sx );
 	virtual void SetScaleY( REScalar sy );
 
-	// 旋转, 非累加
+	// , 
 	virtual void SetRotatePoint( REScalar px = 0, REScalar py = 0);
 	virtual void SetRotateAngle( kn_float degrees);
 	virtual void SetRotate(kn_float degrees, REScalar px = 0, REScalar py = 0);
-	// 倾斜, 非累加
+	// , 
 	virtual void SetSkew(kn_float sx, kn_float sy, REScalar px = 0, REScalar py = 0);
 	virtual void SetBoundRect(const RERect& rect);
 
-	//根据设置的变形参数获得变形矩阵，传入为view相对坐标系的屏幕坐标
+	//view
 	virtual void getMatrix( REScalar x, REScalar y, REMatrix& mat);
 
 
 	// Slot
-	//传入坐标为相对父group的坐标
+	//group
 	virtual void OnMove(kn_int iScreenX, kn_int iScreenY, KMessageMouse* pMsg);
 	virtual void OnDown(kn_int iScreenX, kn_int iScreenY, KMessageMouse* pMsg);
 	virtual void OnUp(kn_int iScreenX, kn_int iScreenY, KMessageMouse* pMsg);
@@ -192,11 +190,11 @@ public:
 
 	virtual void OnGesture(KGesture* pGesture);
 
-	//把view内部的内容渲染到一个image上,构造成TextView返回
+	//viewimage,TextView
 	IRESurface* renderToSurface();
 	KTextView* renderToView();
 
-	// DoMessage时直接调用,不经信号槽传递,供控件内部使用
+	// DoMessage,,
 	virtual void onDownDirect(kn_int iScreenX, kn_int iScreenY, KMessageMouse* pMsg); 
 	virtual void onMoveDirect(kn_int iScreenX, kn_int iScreenY, KMessageMouse* pMsg); 
 	virtual void onUpDirect(kn_int iScreenX, kn_int iScreenY, KMessageMouse* pMsg); 
@@ -221,7 +219,7 @@ public:
 	REScalar getRotateAngle();
 	void getRotatePoint(REScalar& x, REScalar& y);
 
-	//设为聚焦控件
+	//
 	virtual void setViewFocus();
 	virtual void unSetViewFocus();
 	kn_bool bViewFocus();
@@ -229,14 +227,14 @@ public:
 	virtual void setViewActive();
 	virtual void unSetViewActive(kn_bool unsetScreen = TRUE);
 
-	// 模式对话框，暂未实现多层doModal的情况
+	// doModal
 	kn_int doModal();
-	//b_del_view为真 删除view
+	//b_del_view view
 	void endModal(kn_int iResult, kn_bool b_del_view = FALSE);
-	//	模式对话框消息循环,该函数实现与平台相关,windows实现在mainforwindows.cpp,不在KView.cpp 
+	//	,,windowsmainforwindows.cpp,KView.cpp 
 	int runModalLoop();	
 
-	////用于通用型动画参数，不新增属性类实现动画参数时使用
+	////
 	virtual kn_bool isChange(kn_int para_id, kn_double v);
 	virtual void doChange(kn_int para_id, kn_double v);
 	virtual kn_double getParaValue(kn_int para_id);
@@ -251,12 +249,12 @@ public:
 	virtual void SaveOriginalViewRect();
 	virtual RERect getDrawRectBaseOnChild();
 
-	//使用智能指针 不再需要引用计数
-	//增加引用计数
+	// 
+	//
 	//void addRef();
-	////降低引用计数
+	////
 	//void decRef();
-	////是否存在引用计数
+	////
 	//virtual kn_bool isRef();
 
     void setName(const kn_string& );
@@ -267,7 +265,7 @@ public:
 
     void setTip(const kn_string& s, kn_int t1 = NO_TIMER, kn_int t2 = NO_TIMER);
 	void enableTip(kn_bool b);
-	virtual void showTip(int delay_time, int hide_time);//延迟显示时间 自动隐藏时间 -1为不延迟和不隐藏
+	virtual void showTip(int delay_time, int hide_time);//  -1
 	void hideTip();
 	void showTipCallback(int);
 	void hideTipCallback(int);
@@ -283,7 +281,7 @@ public:
 
 	// signal
 	sigslot::signal3<kn_int, kn_int, KMessageMouse* > m_clicked_pos_signal;
-	sigslot::signal1<KView_PTR> m_clicked_signal;	//	参数为sender view
+	sigslot::signal1<KView_PTR> m_clicked_signal;	//	sender view
 
 	sigslot::signal0<> m_sign_focus;
 	sigslot::signal0<> m_sign_unfocus;
@@ -297,12 +295,12 @@ public:
 	sigslot::signal1<KMessageKey*> m_sign_key_down;
 	sigslot::signal1<KMessageKey*> m_sign_key_up;
 	sigslot::signal1<KMessageMouseWheel*> m_sign_wheel_down;
-	//m_sign_keyboard_input和keydown要分开，一次按键两个消息都产生
+	//m_sign_keyboard_inputkeydown
 	sigslot::signal1<KMessageInput*> m_sign_keyboard_input;
 
 	sigslot::signal1<KMessage3Dx*> m_sign_3dx;
 
-	// 多点触摸
+	// 
 	sigslot::signal3<kn_int, kn_int,KMessageTouch*> m_sign_touchmove;
 	sigslot::signal3<kn_int, kn_int,KMessageTouch*> m_sign_touchdown;
 	sigslot::signal3<kn_int, kn_int,KMessageTouch*> m_sign_touchup;
@@ -312,13 +310,13 @@ public:
 
 
 protected:
-	//给view加一个id, 其大小可以用于标识在view group中的顺序
+	//viewid, view group
 	kn_int m_id;
 
-	//给view加一个name，可以做标识，用于调试和动态界面
+	//viewname
 	kn_string m_name;
 
-	////////变形函数统一在绘制时处理矩阵，这些函数仅仅只是设置对应变换值，因为要在绘制时转为屏幕坐标
+	////////
 	int	m_transform_flag;
 	REPoint m_translate_point;
 	REPoint m_scale_size;
@@ -328,61 +326,61 @@ protected:
 	RERect m_skew_para;
 	RERect m_rect_bound;
 
-	//	父KViewGroup
+	//	KViewGroup
 	KViewGroup_WEAK_PTR m_p_parent;		
-	// 所在的screen，顶级view才有值
+	// screenview
 	KScreen*	m_p_screen;
 
 	KVIEWTYPE m_e_viewtype;
 
-	kn_dword m_dw_touctpoint_count;		// 触摸点个数
-	//鼠标是否进入view
+	kn_dword m_dw_touctpoint_count;		// 
+	//view
 	kn_bool	m_b_mouse_in_view;
 
 
 	boost::shared_mutex m_rectInvalid_mutex;
-	LSTRECT m_lst_rect_invalid;		//	需重绘的区域列表
+	LSTRECT m_lst_rect_invalid;		//	
 
 	IRESurface* m_pSurface;
 
 	kn_string   m_tip_txt;
-	// 需要绘制的元素列表
-	boost::shared_mutex m_lst_drawable_mutex; //drawable的锁，对drawable的操作必须使用读写锁
+	// 
+	boost::shared_mutex m_lst_drawable_mutex; //drawabledrawable
 	VEC_DRAWABLE m_lst_drawable;
 
 	kn_int m_i_modal_result;
 
-	// 屏蔽消息，不允许消息穿透到下层 默认为true
+	//  true
 	kn_bool m_shield_msg; 
-	// 模式对话框
+	// 
 	kn_bool m_b_modal_exit;
 	kn_bool		m_b_cache;
 	kn_bool		m_b_update_cache;
-	//是否处理消息
+	//
 	kn_bool m_b_do_msg;
-	//是否聚焦
+	//
 	kn_bool m_b_focus;
-	//是否激活(鼠标悬停)
+	//()
 	kn_bool m_b_active;
 
-	// 被鼠标选中，不跟随动画
+	// 
 	kn_bool m_b_mouse_picked;
 	kn_bool m_b_rmouse_picked;
 
 	kn_bool m_b_show_tip;
-	kn_int	m_tip_id; // tip的编号，标识tip 用于tip管理
-	kn_int  m_tip_delay_time; //延迟显示tip时间
-	kn_int  m_tip_hide_time; //显示后持续多少时间隐藏
+	kn_int	m_tip_id; // tiptip tip
+	kn_int  m_tip_delay_time; //tip
+	kn_int  m_tip_hide_time; //
 	KTimer_PTR m_delay_timer;
 	KTimer_PTR m_hide_timer;
 
 	KGestureDetector* m_p_gesture_detector;
 
-	// 允许识别手势，由于手势识别消耗额外资源，默认不开启
+	// 
 	kn_bool m_b_enable_gesture;
 };
 
-//使用智能指针管理view
+//view
 typedef boost::shared_ptr<KView> KView_PTR;
 typedef boost::weak_ptr<KView> KView_WEAK_PTR;
 typedef vector<KView_PTR> LSTVIEW;
