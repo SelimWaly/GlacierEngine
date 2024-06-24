@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="android/assets/bin/img/logo.png" alt="Logo">
+  <img src="android/assets/img/logo.png" alt="Logo">
 </p>
 
 
