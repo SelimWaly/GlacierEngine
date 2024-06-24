@@ -23,3 +23,5 @@ This is a simple C++ project requires forceful injection with no official setup.
 ## License
 
 This project lies under the Apache 2.0 License. For more information, check the `LICENSE` file.
+
+--
